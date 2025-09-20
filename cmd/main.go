@@ -81,8 +81,8 @@ func main() {
 	http.Handle("/metrics", promhttp.Handler())
 	http.HandleFunc("/", Handler)
 
-	slog.Info("Server listening", "Host", "localhost:8080")
-	if err := http.ListenAndServe("localhost:8080", nil); err != nil {
+	slog.Info("Server listening", "Host", "0.0.0.0:8080")
+	if err := http.ListenAndServe("0.0.0.0:8080", nil); err != nil {
 		slog.Error("Error starting server", "ERROR", err.Error())
 	}
 
